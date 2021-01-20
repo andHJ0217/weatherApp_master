@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WeatherApp_master</string>
+    <string name="str_localweather">Local Weather</string>
+    <string name="str_local">Local</string>
+    <string name="str_today">Today</string>
+    <string name="str_tomorrow">Tomorrow</string>
+    <string name="title_home">Local Weather</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="weatherItemDB"
+                  type="hj.dev.weatherapp_master.ui.data.WeatherViewData"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        <TextView
+                android:id="@+id/tvLocal"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@{weatherItemDB.localTitleData}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/llToday"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintHorizontal_weight="1"
+                tools:text="Seoul"/>
+
+        <LinearLayout
+                android:id="@+id/llToday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvLocal"
+                app:layout_constraintEnd_toStartOf="@+id/llTomorrow"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintHorizontal_weight="3.8"
+                android:background="@drawable/normal_border">
+
+            <ImageView
+                    android:id="@+id/ivTodayImg"
+                    android:layout_width="@dimen/item_weather_icon_size"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@null"
+                    app:imageResource="@{weatherItemDB.todayImageUrlData}"
+                    tools:ignore="RtlSymmetry"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:background="@drawable/normal_border">
+
+                <TextView
+                        android:textColor="@color/colorblack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/item_text_size"
+                        android:text="@{weatherItemDB.todayData}"
+                        tools:text="Light Cloud"/>
+
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="@color/colorPrimaryDark"
+                              android:textSize="@dimen/item_text_size"
+                              android:text="@{weatherItemDB.todayTempData}"
+                              tools:text="-7℃"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="@color/colorblack"
+                              android:textSize="@dimen/item_text_size"
+                              android:text="@{weatherItemDB.todayHumidityData}"
+                              tools:text="24%"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/llTomorrow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/llToday"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintHorizontal_weight="3.8"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                    android:id="@+id/ivTomorrowImg"
+                    android:layout_width="@dimen/item_weather_icon_size"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@null"
+                    app:imageResource="@{weatherItemDB.tomorrowImageUrlData}"
+                    tools:ignore="RtlSymmetry"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:textColor="@color/colorblack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/item_text_size"
+                        android:text="@{weatherItemDB.tomorrowWeatherNameData}"
+                        tools:text="Light Cloud"/>
+
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="wrap_content">
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="@color/colorPrimaryDark"
+                              android:textSize="@dimen/item_text_size"
+                              android:text="@{weatherItemDB.tomorrowTempData}"
+                              tools:text="-7℃"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="@color/colorblack"
+                              android:textSize="@dimen/item_text_size"
+                              android:text="@{weatherItemDB.tomorrowHumidityData}"
+                              tools:text="24%"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
